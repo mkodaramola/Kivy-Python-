@@ -1,0 +1,43 @@
+#: import utils kivy.utils
+<MyGridLayout>
+	name:nameID
+	snack:snackID
+	colour:colourID
+	GridLayout:
+		background_color: utils.get_color_from_hex('#0FFF9d')
+		cols:1
+		size: root.width, root.height
+		GridLayout:
+			cols:2
+
+			Label:
+				text: "Name nl"
+				background_normal: ''
+				background_color: utils.get_color_from_hex('#ab01c9')
+			TextInput:
+				id: nameID
+				multiline: True
+
+
+			Label:
+				text:"Favourite Snack nl"
+			TextInput:
+				id:snackID
+				multiline: True
+
+			Label:
+				text:"Favourite Colour nl"
+			TextInput:
+				id:colourID
+				multiline: True
+				background_color: utils.get_color_from_hex('#FFFF00')
+		Button:
+			text: "Submit"
+			font_size:60
+			on_press:root.press()
+			background_normal: ''
+			background_color: (238/250,250/250,0/250,1)
+			background_color: utils.get_color_from_hex('#0FFF9d')
+			
+
+

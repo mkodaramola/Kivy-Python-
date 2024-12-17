@@ -1,0 +1,17 @@
+<MyGridLayout>
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+		padding: 50
+		spacing: 20
+
+		Image:
+			source: 'p1.jpg'
+			size_hint: (None,None)
+			width:550
+			height:295
+			pos_hint:{'center_x':0.1}
+			allow_stretch:False
+			keep_ratio:True
+		Button:
+			text: "Hello World"

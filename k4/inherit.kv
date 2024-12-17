@@ -1,0 +1,34 @@
+<Button>
+	background_normal:''
+	background_color:(1,1,0,1)
+
+<TextInput>
+	background_color: (0.12,0.67,0.53,1)
+
+<Label>
+	font_size:30
+
+
+<MyGridLayout>
+	BoxLayout:
+		size: root.width, root.height
+		orientation: "vertical"
+		padding:10
+		spacing:10
+
+		Label:
+			text: "Name"
+		TextInput:
+			multiline: True
+
+		Label:
+			text:"Favorite Snack"
+		TextInput:
+			multiline: False
+
+		Button:
+			text:"Submit"
+		Button:
+			text: "Clear"
+			background_color:(1,0,0,1)
+

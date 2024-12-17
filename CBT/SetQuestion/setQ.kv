@@ -1,0 +1,119 @@
+#: kivy 2.1.0
+#:import Accordion kivy.uix.accordion.Accordion
+#:import AccordionItem kivy.uix.accordion.Accordion
+
+
+WindowManager:
+	FirstWindow:
+	SecondWindow:
+	ThirdWindow:
+
+
+<RoundedButton@Button>
+	background_color: (0, 0, 0, 0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (0.2, 0.2, 0.25, 1) if self.state == 'normal' else (1,0,1,1)
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+			radius: [0,250,250,0]
+
+
+
+
+<FirstWindow>:
+	name: 'first'
+	BoxLayout:
+		FloatLayout:
+
+			Spinner:
+				id:nos
+				markup: True
+				text:"1 Section"
+				values: ["1 Section","2 Sections","3 Sections","4 Sections","5 Sections","6 Sections","7 Sections","8 Sections","9 Sections","10 Sections"]
+				size_hint: (0.3, 0.1)
+				pos_hint: {'center_x': 0.5,"center_y":0.9}
+				font_size: 30
+				background_normal: ''
+				background_color: (0.2, 0.2, 0.25, 1)
+				
+				
+
+
+
+			RoundedButton:
+				markup: True
+				text: "Next"
+				halign: "left"
+				font_size: 30
+				size_hint: (0.3, 0.1)
+				pos_hint: {'center_x':0.5, 'bottom':1, 'center_y':0.15}
+
+				on_release: app.root.current= "second"
+				on_press: root.sectionNum()
+
+				#if self.state == 'normal' else (1,0,1,1)
+
+
+<SecondWindow>:
+	name: "second"
+
+	BoxLayout:
+		orientation: 'vertical'
+		spacing: 5
+		BoxLayout:
+			Button:
+				id: shb
+				text: 'Start'
+				size_hint: (0.1, 0.1)
+				on_release: root.setPage()
+				pos_hint: {'center_y': 0.95}
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Fill@Button>
+	background_color: (0, 0, 0, 0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (1, 1, 1, 0)
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+
+
+
+
+
+
+
+
+
+# GridLayout:
+# 				cols: 2
+# 				padding: 30
+# 				spacing: 10
+# 				Label:
+# 					id: noq
+# 					text: 'Numbers of Sections'
+# 					size_hint_y: None
+# 					height: 30
+					
+
+# 				TextInput:
+# 					text: ''
+# 					size_hint_y: None
+# 					height: 30

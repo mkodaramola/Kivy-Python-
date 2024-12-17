@@ -1,0 +1,356 @@
+#: import utils kivy.utils
+#: kivy 2.1.0
+#:import Button kivy.uix.button.Button
+#:import Label kivy.uix.label.Label
+#:import CheckBox kivy.uix.checkbox.CheckBox
+
+
+
+# from kivy.uix.button import Button
+
+
+<RoundedButton@Button>
+	background_color: (0, 0, 0, 0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (1, 1, 1, 1) if self.state == 'normal' else (1,0,1,1)
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+			radius: [20]
+
+
+<myLayout>
+	BoxLayout:
+		
+		orientation: 'vertical'
+		size: root.width, root.height
+
+		spacing: 10
+		padding: 5
+
+		on_parent:
+			sb=[None]*5
+
+
+
+		GridLayout:
+			cols:6
+			size_hint: (1, 0.35)
+
+			spacing: 20
+			padding: 10
+			background_color: 
+
+			canvas.before:
+				Color:
+					rgba: utils.get_color_from_hex('#2C5F2DFF')
+				Rectangle:
+					pos:self.pos
+					size:self.size
+
+			Image:
+				source: "logo/futa_logo.png"
+				size_hint: (0.4, 0.2)
+				
+
+			Label:
+				markup: True
+				text: '[b]The Federal University of Technology, Akure PUTME[/b]'
+				font_size: 20
+				size_hint_x: 1
+				height: self.texture_size[1]
+				text_size: (self.width, None)
+				
+			BoxLayout:
+				orientation: 'vertical'
+				
+				Label:
+					text: 'Time'	
+				Label:
+					markup: True
+					text: '[b]00:00[/b]'
+					font_size: 20
+				
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					text: 'Calculator'
+				Image:
+					source: "logo/calc.png"
+
+				
+
+			BoxLayout:
+				orientation: 'vertical'
+				Label:
+					text: 'Anti-Cheating'
+				Switch:
+					active: True
+					font_size: 15
+
+			BoxLayout:
+				orientation: 'vertical'
+				size_hint: (0.5, 0.1)
+
+				Button:
+					text: 'Submit'
+					size_hint: (0.65, 0.1)
+					on_release:
+						for i in range(50):	print("submit")
+					
+				
+		
+		
+
+		BoxLayout:
+
+			orientation: 'horizontal'
+
+			spacing: 30
+
+			size_hint: (0.5, 0.1)
+
+
+			on_parent:
+				for i in range(5): txt=f'Section {chr(65+i)}'; sb=Button(text=txt); sb.bind(on_press=root.sectBtn); self.add_widget(sb); 
+
+		
+		TextInput:
+			text: 'What is the mass deposited Cu[sup]2+[/sup] at the cathode of a H[sub]2[/sub]SO[sub]4[/sub] if the quantity of electricity is 7500C'
+			readonly: True
+			size_hint: (1, 0.4)
+
+		Button:
+			size_hint: (1, 0.1)
+			background_normal: ''
+			background_color: (1, 1, 1, 0)
+
+		GridLayout:
+			cols:2
+			BoxLayout:
+				GridLayout:
+					cols:2
+					spacing: 40
+
+					on_parent:
+						for i in range(6): txt=f'Option {chr(65+i)}'; rb=CheckBox(group='q1'); self.add_widget(rb); lb=Label(text=txt); self.add_widget(lb);
+						
+
+
+				BoxLayout:
+				BoxLayout:
+				BoxLayout:
+
+
+
+			BoxLayout:
+				size_hint: (1, 0.5)
+				Image:
+					source: "Diagrams/d1.jpg"
+
+		Fill:
+			GridLayout:
+				cols: 2
+
+				spacing: (150, 0)
+				
+				Button:
+					text: 'Prev'
+					size_hint: (None, None)
+					pos_hint: {'center_x': 0.3}
+					size:(55,45)
+				Button:
+					text: 'Save & Next'
+					size_hint: (None, None)
+					size:(95,45)
+
+
+		# Button:
+		# 	background_normal: ''
+		# 	background_color: (1, 1, 1, 0)
+		# 	size_hint: (None, None)
+		# 	size:(20,70)
+
+		GridLayout:
+			cols: 6
+			spacing: (5)
+
+
+			on_parent:
+				for i in range(6): rdb=Button(text=str(i+1),size_hint= (None, None),size=(55,30)); self.add_widget(rdb);
+
+
+
+			# RoundedButton:
+			# 	text: '1'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)
+			# RoundedButton:
+			# 	text: '2'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)
+			# RoundedButton:
+			# 	text: '3'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)
+			# RoundedButton:
+			# 	text: '4'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)
+			# RoundedButton:
+			# 	text: '5'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)
+			# RoundedButton:
+			# 	text: '6'
+			# 	size_hint: (None, None)
+			# 	size:(55,30)
+			# 	color: (0, 1, 0, 1)	
+
+
+
+
+<Fill@Button>
+	background_color: (0, 0, 0, 0)
+	background_normal: ''
+	canvas.before:
+		Color:
+			rgba: (1, 1, 1, 0)
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Tab:
+# 			do_default_tab: False
+# 			size_hint: (1,1)
+# 			padding: 60
+# 			pos_hint: {'center_x ': 1}
+# 			tab_pos:'top_mid'
+
+
+			
+
+# 			TabbedPanelItem:
+# 				text: 'Section A'
+
+# 				GridLayout:
+# 					cols:1
+# 					spacing: 70
+# 					padding: 3
+
+# 					canvas.before:
+# 						Color:
+# 							rgba: (0.3,0.75,0,1)
+# 						Rectangle:
+# 							pos:self.pos
+# 							size:self.size
+
+					
+
+# 					BoxLayout:
+# 						orientation: 'vertical'
+# 						size_hint: (1, None)
+# 						height: 100
+# 						Label:
+# 							markup: True
+# 							text: 'What is the mass deposited Cu[sup]2+[/sup] at the cathode of a H[sub]2[/sub]SO[sub]4[/sub] if the quantity of electricity is 7500C'
+# 							size_hint: (1, 1)
+# 							halign: "left"
+# 							pos_hint: {'center_x': 0.5}
+# 							canvas.before:
+# 								Color:
+# 									rgba: (1,1,1,1)
+# 								Rectangle:
+# 									pos:self.pos
+# 									size:self.size
+# 							color: (0, 0, 0, 1)
+
+# 					GridLayout:
+# 						cols:6
+# 						size_hint_x: 0.1
+# 						GridLayout:
+# 							cols:2
+# 							spacing: 40
+
+# 							CheckBox:
+# 								group: 'q1'
+# 							Label:
+# 								text: 'Option A'
+								
+
+# 							CheckBox:
+# 								group: 'q1'
+# 							Label:
+# 								text: 'Option B'
+
+# 							CheckBox:
+# 								group: 'q1'
+# 							Label:
+# 								text: 'Option C'
+								
+
+# 							CheckBox:
+# 								group: 'q1'
+# 							Label:
+# 								text: 'Option D'
+
+					
+# 						GridLayout:
+# 							cols:1
+# 							pos_hint: {'center_x':0.9,'center_y':0.5, 'y':0}
+# 							size_hint: (2.1, 50)
+							
+# 							spacing: (40)
+# 							BoxLayout:
+# 								Image:
+# 									source: "Diagrams/d1.jpg"
+# 									pos_hint: {'center_x': 0.8, 'center_y':0.5}
+# 									size_hint_y: None
+# 									height: self.parent.width - 500
+# 									size_hint_x: None
+# 									width: self.parent.width - 500
+# 									allow_stretch: True
+# 									keep_ratio: True
+# 							BoxLayout:
+
+							
+
+							
+
+
+
+# 			TabbedPanelItem:
+# 				text: 'Section B'
+# 				Label:
+# 					text: 'This is Section B'
+
+# 			TabbedPanelItem:
+# 				text: 'Section C'
+# 				Label:
+# 					text: 'This is Section C'
+
